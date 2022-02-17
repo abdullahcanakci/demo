@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+  color: white;
+}
