@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { selectValue, INCREMENT } from "@/store/demoSlice";
 
 export default function Homepage() {
-  const [count, setCount] = useState(0);
+  const value = useSelector(selectValue)
+  const dispatch = useDispatch()
   const { t } = useTranslation()
 
   return (
@@ -10,14 +13,14 @@ export default function Homepage() {
       <button
         type="button"
         className="px-8 py-4 m-1 transition-colors rounded-md bg-slate-800 hover:bg-slate-900"
-        onClick={() => setCount((c) => c + 1)}
+        onClick={() => dispatch(INCREMENT())}
       >
         {t('click-me')}
         <span className="inline-block w-6 ml-2 bg-yellow-300 rounded-full shadow-sm hover:shadow-md text-slate-900">
-          {count}
+          {value}
         </span>
       </button>
-    </div>
+    </div >
   );
 }
 
